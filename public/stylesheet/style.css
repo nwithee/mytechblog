@@ -4,7 +4,7 @@
 }
 
 *:visited {
-    color:pink;
+    color:rgb(180, 48, 70);
 }
 
 
@@ -12,7 +12,7 @@
 .hero {
     display: flex;
     justify-content: space-between;
-    border: solid lightblue;
+    border: solid rgb(3, 100, 132);
     align-items: center;
     
     
@@ -35,17 +35,17 @@ h1 {
 }
 
 main {
-    border: solid lightblue;
+    border: solid rgb(3, 100, 132);
     margin-top: 50px;
     align-items: center;
 }
 
 .login-page {
-    border: solid lightblue;
+    border: solid rgb(3, 100, 132);
     border-width: 2px;
     padding: 4em;
     margin: 4rem;
-    border-bottom: 1px solid lightblue;
+    border-bottom: solid rgb(3, 100, 132);
     align-items: center;
     float: right;
     left: -50%;

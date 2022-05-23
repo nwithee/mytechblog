@@ -4,18 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>rePostit</title>
+  <title>The Tech Blog</title>
   <link rel="stylesheet" href="/stylesheet/style.css">
 </head>
 
 <body>
  
-  <header class="hero" style="background-image: url('/media/Social-Media-header.jpg)">
-    <h1><a href="/">Re-Post-It</a></h1>
+  <header class="hero">
+    <h1><a href="/">The Tech Blog</a></h1>
     <nav>
         <ul>
         <li class="li-inline nav-item"><a href="/">Homepage</a></li>
         {{#if loggedIn}}
+        <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
         <li class="li-inline nav-item"><a href="#" id="logout">Logout</a></li>
         {{else}}
         <li class="li-inline nav-item"><a href="/login">Login</a></li>

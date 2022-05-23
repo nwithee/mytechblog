@@ -8,11 +8,8 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
-      'post_url',
       'post_body',
-      'sm_site',
       [sequelize.literal('((SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id) - (SELECT COUNT(*) FROM Downvote WHERE post.id = Downvote.post_id))'), 'vote_count']
-      //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -43,12 +40,9 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
       'title',
       'post_body',
-      'sm_site',
       [sequelize.literal('((SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id) - (SELECT COUNT(*) FROM Downvote WHERE post.id = Downvote.post_id))'), 'vote_count']
-      //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -82,9 +76,7 @@ router.post('/', (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
     post_body: req.body.post_body,
-    sm_site: req.body.sm_site,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -127,7 +119,6 @@ router.put('/:id', (req, res) => {
     {
       title: req.body.title,
       post_body: req.body.post_body,
-      post_url: req.body.post_url
     },
     {
       where: {

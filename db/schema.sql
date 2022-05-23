@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS repostit_db;
+DROP DATABASE IF EXISTS mytechblog_db;
 
-CREATE DATABASE repostit_db;
+CREATE DATABASE mytechblog_db;

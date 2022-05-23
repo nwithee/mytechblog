@@ -8,13 +8,10 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
-      'sm_site',
       'created_at',
       'post_body',
       [sequelize.literal('((SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id) - (SELECT COUNT(*) FROM Downvote WHERE post.id = Downvote.post_id))'), 'vote_count']
-      //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -61,18 +58,15 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
-      'sm_site',
       'post_body',
       [sequelize.literal('((SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id) - (SELECT COUNT(*) FROM Downvote WHERE post.id = Downvote.post_id))'), 'vote_count']
-      //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
