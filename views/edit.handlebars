@@ -12,12 +12,15 @@
                     <input type="text" name="post-title" id="post-title" value="{{post.title}}" />
                 </div>
                 <div class="post-content">
-                    <label for="post-content">Content</label>
-                    <textarea class="entry-field" id="post-content" name="post-content">{{post.content}}</textarea>
+                    <label for="post-content">Post</label>
+                    <textarea class="entry-field" id="post-content" name="post-content">{{post.post_body}}</textarea>
                 </div>
-                <button type="submit">Update post</button>
-                <button type="button" class="delete-post-btn">Delete post</button>
+                <button type="submit" id = "submit">Update post</button>
+                <button type="button" class="delete-post-btn" id = "delete-post-btn">Delete post</button>
             </form>
         </div>
     </section>
 </article>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>

@@ -7,7 +7,7 @@ router.get('/', withAuth, (req, res) => {
     Post.findAll({
       where: {
         // use the ID from the session
-        user_id: req.session.user_id
+       user_id: req.session.user_id
       },
       attributes: [
         'id',
@@ -46,8 +46,9 @@ router.get('/', withAuth, (req, res) => {
       attributes: [
         'id',
         'title',
+        'post_body',
         'created_at',
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
         {
@@ -68,7 +69,7 @@ router.get('/', withAuth, (req, res) => {
         if (dbPostData) {
           const post = dbPostData.get({ plain: true });
           
-          res.render('edit-post', {
+          res.render('edit', {
             post,
             loggedIn: true
           });
@@ -80,5 +81,9 @@ router.get('/', withAuth, (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  router.get("/new", withAuth, (req, res) => {
+    res.render("new-post");
+    });
 
 module.exports = router;

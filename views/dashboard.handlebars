@@ -9,23 +9,18 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <form class="new-post">
-        <label for="post-title"></label>
-        <button type="submit" class="btn" id="post-new">New post</button>
-    </form>
     <ul class="list-post">
         {{#each posts as |post|}}
         <li>
-        {{> post-info post }}
+        {{> edit-post post }}
         </li>
         {{/each}}
     </ul>
 
 </div>
+<footer> <a href= "/dashboard/new">New Post</a></footer>
 
     
 </body>
 
 </html>
-
-<script src="/javascript/add-post.js"></script>
